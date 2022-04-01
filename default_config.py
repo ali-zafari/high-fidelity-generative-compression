@@ -20,11 +20,13 @@ class Datasets(object):
     OPENIMAGES = 'openimages'
     CITYSCAPES = 'cityscapes'
     JETS = 'jetimages'
+    SDO = 'sdo'
 
 class DatasetPaths(object):
     OPENIMAGES = 'data/openimages'
     CITYSCAPES = ''
     JETS = ''
+    SDO = '/media/ali/ExtraSSD/miniSDOPNG'
 
 class directories(object):
     experiments = 'experiments'
@@ -42,8 +44,8 @@ class args(object):
     save_interval = 50000
     gpu = 0
     multigpu = True
-    dataset = Datasets.OPENIMAGES
-    dataset_path = DatasetPaths.OPENIMAGES
+    dataset = Datasets.SDO
+    dataset_path = DatasetPaths.SDO
     shuffle = True
 
     # GAN params
