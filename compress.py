@@ -199,7 +199,9 @@ def compress_and_decompress(args):
         df['MS_SSIM'] = MS_SSIM_total.cpu().numpy()
 
     df_path = os.path.join(args.output_dir, 'compression_metrics.h5')
+    df_path_csv = os.path.join(args.output_dir, 'compression_metrics.csv')
     df.to_hdf(df_path, key='df')
+    df.to_csv(df_path_csv)
 
     pprint(df)
 
