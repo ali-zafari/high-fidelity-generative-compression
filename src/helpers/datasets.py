@@ -324,7 +324,7 @@ class SDO(BaseDataset):
         self.imgs += glob.glob(os.path.join(data_dir, '*.png'))
 
         self.crop_size = crop_size
-        self.image_dims = (3, self.crop_size, self.crop_size)
+        self.image_dims = (1, self.crop_size, self.crop_size)
         self.scale_min = SCALE_MIN
         self.scale_max = SCALE_MAX
         self.normalize = normalize
@@ -340,7 +340,7 @@ class SDO(BaseDataset):
                            transforms.ToTensor()]
 
         if self.normalize is True:
-            transforms_list += [transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))]
+            transforms_list += [transforms.Normalize((0.5,), (0.5,))]
 
         return transforms.Compose(transforms_list)
 
@@ -365,7 +365,7 @@ class SDO(BaseDataset):
             # H, W = img_dims[0], img_dims[1]
             # PIL
             img = PIL.Image.open(img_path)
-            img = img.convert('RGB')
+            # img = img.convert('RGB')
             W, H = img.size  # slightly confusing
             bpp = filesize * 8. / (H * W)
 
